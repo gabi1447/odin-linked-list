@@ -51,6 +51,21 @@ function linkedList() {
         return;
     }
 
+    function at(index) {
+        if (index > getSize() - 1) {
+            return new Error("The index provided is out of range");
+        }
+        let pointer = 0;
+        let currentNode = head;
+
+        while (pointer != index) {
+            currentNode = currentNode.next;
+            pointer++;
+        }
+
+        return currentNode;
+    }
+
     function parseLinkedList() {
         let pointer = head;
         let sequence = "";
@@ -68,6 +83,7 @@ function linkedList() {
     return {
         getHead,
         getTail,
+        at,
         prepend,
         append,
         getSize,
