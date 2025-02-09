@@ -3,6 +3,17 @@ function linkedList() {
     let tail = null;
     let current = null;
     let previous = null;
+
+    function prepend(node) {
+        if (head === null) {
+            head = node;
+            return;
+        }
+        node.next = head;
+        head = node;
+        return;
+    }
+
     function append(node) {
         if (head === null) {
             head = node;
@@ -16,6 +27,7 @@ function linkedList() {
         tail = node;
         return;
     }
+
     function parseLinkedList() {
         let pointer = head;
         let sequence = "";
@@ -33,6 +45,7 @@ function linkedList() {
     return {
         head,
         tail,
+        prepend,
         append,
         parseLinkedList,
     };
