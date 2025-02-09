@@ -93,12 +93,8 @@ function linkedList() {
 
 function node(value) {
     let next = null;
-    function addNextNode(node) {
-        next = node;
-    }
     return {
         value,
         next,
-        addNextNode,
     };
 }
