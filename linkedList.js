@@ -80,6 +80,30 @@ function linkedList() {
         return currentNode;
     }
 
+    function contains(value) {
+        let currentNode = head;
+
+        while (true) {
+            if (currentNode === null) {
+                break;
+            } else if (currentNode.value === value) {
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
+        return false;
+    }
+
+    function containsRecursive(value, head) {
+        if (head === null) {
+            return false;
+        } else if (head.value === value) {
+            return true;
+        }
+
+        return containsRecursive(value, head.next);
+    }
+
     function parseLinkedList() {
         let pointer = head;
         let sequence = "";
@@ -98,6 +122,8 @@ function linkedList() {
         getHead,
         getTail,
         at,
+        contains,
+        containsRecursive,
         prepend,
         append,
         pop,
@@ -113,3 +139,25 @@ function node(value) {
         next,
     };
 }
+
+const linkedListInstance = linkedList();
+const node1 = node("gabi");
+const node2 = node("michael");
+const node3 = node("cifu");
+linkedListInstance.append(node1);
+linkedListInstance.append(node2);
+linkedListInstance.prepend(node3);
+linkedListInstance.parseLinkedList();
+linkedListInstance.pop();
+linkedListInstance.parseLinkedList();
+console.log(linkedListInstance.contains("gabi"));
+console.log(linkedListInstance.contains("michael"));
+console.log(
+    linkedListInstance.containsRecursive("gabi", linkedListInstance.getHead())
+);
+console.log(
+    linkedListInstance.containsRecursive(
+        "michael",
+        linkedListInstance.getHead()
+    )
+);
