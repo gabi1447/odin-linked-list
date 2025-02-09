@@ -5,6 +5,14 @@ function linkedList() {
     let previous = null;
     let size = 0;
 
+    function getHead() {
+        return head;
+    }
+
+    function getTail() {
+        return tail;
+    }
+
     function incrementSizeByOne() {
         size++;
     }
@@ -17,7 +25,10 @@ function linkedList() {
         incrementSizeByOne();
         if (head === null) {
             head = node;
+            tail = node;
             return;
+        } else if (getSize() === 1) {
+            tail = head;
         }
         node.next = head;
         head = node;
@@ -28,6 +39,7 @@ function linkedList() {
         incrementSizeByOne();
         if (head === null) {
             head = node;
+            tail = node;
             return;
         }
         current = head;
@@ -54,8 +66,8 @@ function linkedList() {
         console.log(sequence);
     }
     return {
-        head,
-        tail,
+        getHead,
+        getTail,
         prepend,
         append,
         getSize,
