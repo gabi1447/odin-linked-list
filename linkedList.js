@@ -51,6 +51,20 @@ function linkedList() {
         return;
     }
 
+    function pop() {
+        const listLength = getSize();
+        if (listLength === 0) {
+            return "The list is empty, you can't pop any elements";
+        } else if (listLength === 1) {
+            head = null;
+            size--;
+            return;
+        }
+        const secondToLastNode = at(listLength - 2);
+        secondToLastNode.next = null;
+        size--;
+    }
+
     function at(index) {
         if (index > getSize() - 1) {
             return new Error("The index provided is out of range");
@@ -86,6 +100,7 @@ function linkedList() {
         at,
         prepend,
         append,
+        pop,
         getSize,
         parseLinkedList,
     };
