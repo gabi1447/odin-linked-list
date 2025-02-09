@@ -3,8 +3,18 @@ function linkedList() {
     let tail = null;
     let current = null;
     let previous = null;
+    let size = 0;
+
+    function incrementSizeByOne() {
+        size++;
+    }
+
+    function getSize() {
+        return size;
+    }
 
     function prepend(node) {
+        incrementSizeByOne();
         if (head === null) {
             head = node;
             return;
@@ -15,6 +25,7 @@ function linkedList() {
     }
 
     function append(node) {
+        incrementSizeByOne();
         if (head === null) {
             head = node;
             return;
@@ -47,6 +58,7 @@ function linkedList() {
         tail,
         prepend,
         append,
+        getSize,
         parseLinkedList,
     };
 }
