@@ -176,7 +176,7 @@ export function linkedList() {
     };
 }
 
-export function node(value) {
+function node(value) {
     let next = null;
     return {
         value,
