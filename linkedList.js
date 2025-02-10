@@ -183,11 +183,3 @@ export function node(value) {
         next,
     };
 }
-
-const linkedListInstance = linkedList();
-linkedListInstance.append("gabi");
-linkedListInstance.append("michael");
-linkedListInstance.prepend("cifu");
-linkedListInstance.toString();
-linkedListInstance.insertAt("cronk", 3);
-linkedListInstance.toString();
