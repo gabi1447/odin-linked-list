@@ -20,33 +20,35 @@ export function linkedList() {
         return size;
     }
 
-    function prepend(node) {
+    function prepend(value) {
+        const newNode = node(value);
         incrementSizeByOne();
         if (head === null) {
-            head = node;
-            tail = node;
+            head = newNode;
+            tail = newNode;
             return;
         } else if (getSize() === 1) {
             tail = head;
         }
-        node.next = head;
-        head = node;
+        newNode.next = head;
+        head = newNode;
         return;
     }
 
-    function append(node) {
+    function append(value) {
+        const newNode = node(value);
         incrementSizeByOne();
         if (head === null) {
-            head = node;
-            tail = node;
+            head = newNode;
+            tail = newNode;
             return;
         }
         current = head;
         while (current.next !== null) {
             current = current.next;
         }
-        current.next = node;
-        tail = node;
+        current.next = newNode;
+        tail = newNode;
         return;
     }
 
@@ -125,7 +127,7 @@ export function linkedList() {
         previousNode.next = newNode;
 
         newNode.next = previousNextReference;
-        size++;
+        incrementSizeByOne();
     }
 
     function removeAt(index) {
@@ -181,3 +183,11 @@ export function node(value) {
         next,
     };
 }
+
+const linkedListInstance = linkedList();
+linkedListInstance.append("gabi");
+linkedListInstance.append("michael");
+linkedListInstance.prepend("cifu");
+linkedListInstance.toString();
+linkedListInstance.insertAt("cronk", 3);
+linkedListInstance.toString();
