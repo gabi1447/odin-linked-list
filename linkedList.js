@@ -104,6 +104,20 @@ function linkedList() {
         return containsRecursive(value, head.next);
     }
 
+    function find(value) {
+        let currentIndex = 0;
+        let currentNode = head;
+        while (true) {
+            if (currentNode === null) {
+                return currentNode;
+            } else if (currentNode.value === value) {
+                return currentIndex;
+            }
+            currentNode = currentNode.next;
+            currentIndex++;
+        }
+    }
+
     function parseLinkedList() {
         let pointer = head;
         let sequence = "";
@@ -127,6 +141,7 @@ function linkedList() {
         prepend,
         append,
         pop,
+        find,
         getSize,
         parseLinkedList,
     };
@@ -139,3 +154,27 @@ function node(value) {
         next,
     };
 }
+
+const linkedListInstance = linkedList();
+const node1 = node("gabi");
+const node2 = node("michael");
+const node3 = node("cifu");
+linkedListInstance.append(node1);
+linkedListInstance.append(node2);
+linkedListInstance.prepend(node3);
+linkedListInstance.parseLinkedList();
+console.log(linkedListInstance.contains("gabi"));
+console.log(linkedListInstance.contains("michael"));
+console.log(
+    linkedListInstance.containsRecursive("gabi", linkedListInstance.getHead())
+);
+console.log(
+    linkedListInstance.containsRecursive(
+        "michael",
+        linkedListInstance.getHead()
+    )
+);
+
+console.log(linkedListInstance.find("cifu"));
+console.log(linkedListInstance.find("gabi"));
+console.log(linkedListInstance.find("michael"));
