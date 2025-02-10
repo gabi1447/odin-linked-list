@@ -118,7 +118,7 @@ function linkedList() {
         }
     }
 
-    function parseLinkedList() {
+    function toString() {
         let pointer = head;
         let sequence = "";
         if (pointer === null) {
@@ -143,7 +143,7 @@ function linkedList() {
         pop,
         find,
         getSize,
-        parseLinkedList,
+        toString,
     };
 }
 
@@ -162,7 +162,7 @@ const node3 = node("cifu");
 linkedListInstance.append(node1);
 linkedListInstance.append(node2);
 linkedListInstance.prepend(node3);
-linkedListInstance.parseLinkedList();
+linkedListInstance.toString();
 console.log(linkedListInstance.contains("gabi"));
 console.log(linkedListInstance.contains("michael"));
 console.log(
