@@ -1,4 +1,4 @@
-function linkedList() {
+export function linkedList() {
     let head = null;
     let tail = null;
     let current = null;
@@ -174,7 +174,7 @@ function linkedList() {
     };
 }
 
-function node(value) {
+export function node(value) {
     let next = null;
     return {
         value,
