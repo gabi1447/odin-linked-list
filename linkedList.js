@@ -118,6 +118,16 @@ function linkedList() {
         }
     }
 
+    function insertAt(value, index) {
+        const newNode = node(value);
+
+        const previousNode = at(index - 1);
+        const previousNextReference = previousNode.next;
+        previousNode.next = newNode;
+
+        newNode.next = previousNextReference;
+    }
+
     function toString() {
         let pointer = head;
         let sequence = "";
@@ -142,6 +152,7 @@ function linkedList() {
         append,
         pop,
         find,
+        insertAt,
         getSize,
         toString,
     };
