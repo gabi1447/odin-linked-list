@@ -154,27 +154,3 @@ function node(value) {
         next,
     };
 }
-
-const linkedListInstance = linkedList();
-const node1 = node("gabi");
-const node2 = node("michael");
-const node3 = node("cifu");
-linkedListInstance.append(node1);
-linkedListInstance.append(node2);
-linkedListInstance.prepend(node3);
-linkedListInstance.toString();
-console.log(linkedListInstance.contains("gabi"));
-console.log(linkedListInstance.contains("michael"));
-console.log(
-    linkedListInstance.containsRecursive("gabi", linkedListInstance.getHead())
-);
-console.log(
-    linkedListInstance.containsRecursive(
-        "michael",
-        linkedListInstance.getHead()
-    )
-);
-
-console.log(linkedListInstance.find("cifu"));
-console.log(linkedListInstance.find("gabi"));
-console.log(linkedListInstance.find("michael"));
