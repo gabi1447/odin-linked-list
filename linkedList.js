@@ -2,7 +2,6 @@ function linkedList() {
     let head = null;
     let tail = null;
     let current = null;
-    let previous = null;
     let size = 0;
 
     function getHead() {
@@ -126,6 +125,22 @@ function linkedList() {
         previousNode.next = newNode;
 
         newNode.next = previousNextReference;
+        size++;
+    }
+
+    function removeAt(index) {
+        if (index === 0) {
+            head = head.next;
+            size--;
+            return;
+        }
+
+        const previousNode = at(index - 1);
+        const nodeToBeDeleted = at(index);
+        const nextReferenceOfDeletedNode = nodeToBeDeleted.next;
+        previousNode.next = nextReferenceOfDeletedNode;
+
+        size--;
     }
 
     function toString() {
@@ -153,6 +168,7 @@ function linkedList() {
         pop,
         find,
         insertAt,
+        removeAt,
         getSize,
         toString,
     };
